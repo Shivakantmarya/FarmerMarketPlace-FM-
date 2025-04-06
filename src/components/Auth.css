@@ -1,0 +1,264 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100%; Fits within parent */
+    background-color: #f4f4f4;
+    /* padding: 1rem; Flexible base padding */
+  }
+  
+  .auth-card {
+    background: linear-gradient(135deg, #FF9800 0%, #004D4D 100%);
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 90%; /* Fluid width */
+    max-width: 360px; /* Caps at desktop size */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 152, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+    height:25rem;
+  }
+  
+  .auth-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 152, 0, 0.1) 10%, transparent 40%);
+    animation: orbitPulse 6s infinite ease-in-out;
+    z-index: 0;
+  }
+  
+  .auth-card h2 {
+    color: white;
+    font-size: clamp(1.5rem, 5vw, 1.8rem); /* Scales with viewport */
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .input-group {
+    position: relative;
+    margin-bottom: 1rem;
+    z-index: 1;
+  }
+  
+  .auth-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.9rem, 3vw, 0.95rem); /* Responsive font */
+    color: #333;
+    outline: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .auth-input:focus,
+  .auth-input:not(:placeholder-shown) {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+  }
+  
+  .auth-label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  .auth-input:focus + .auth-label,
+  .auth-input:not(:placeholder-shown) + .auth-label {
+    top: -8px;
+    left: 8px;
+    font-size: clamp(0.65rem, 2vw, 0.7rem);
+    color: #FF9800;
+    background: white;
+    padding: 0 4px;
+    border-radius: 3px;
+  }
+  
+  .select-label {
+    top: -8px;
+    left: 8px;
+    font-size: clamp(0.65rem, 2vw, 0.7rem);
+    color: #FF9800;
+    background: white;
+    padding: 0 4px;
+    border-radius: 3px;
+  }
+  
+  .auth-button {
+    width: 100%;
+    padding: 10px;
+    background: #D94F00;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(217, 79, 0, 0.4);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .auth-button:hover {
+    background: #FF9800;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 152, 0, 0.6);
+  }
+  
+  .auth-switch {
+    text-align: center;
+    color: white;
+    margin-top: 0.75rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.85rem);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .auth-switch a {
+    color: #D94F00;
+    font-weight: 700;
+    transition: color 0.3s ease;
+  }
+  
+  .auth-switch a:hover {
+    color: #FF9800;
+    text-decoration: underline;
+  }
+  
+  .error {
+    color: #ff4d4d;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.4rem;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes orbitPulse {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) { /* Tablets and below */
+    .auth-card {
+      padding: 1rem;
+      max-width: 320px; /* Slightly smaller */
+    }
+  
+    .auth-card h2 {
+      margin-bottom: 0.75rem;
+    }
+  
+    .input-group {
+      margin-bottom: 0.75rem;
+    }
+  
+    .auth-button {
+      padding: 8px;
+    }
+  
+    .auth-switch {
+      margin-top: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) { /* Small mobile devices */
+    .auth-container {
+      padding: 0.5rem;
+    }
+  
+    .auth-card {
+      padding: 0.75rem;
+      max-width: 280px; /* Compact for small screens */
+    }
+  
+    .auth-card h2 {
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+    }
+  
+    .auth-input {
+      padding: 8px 10px;
+    }
+  
+    .auth-label {
+      left: 10px;
+    }
+  
+    .auth-input:focus + .auth-label,
+    .auth-input:not(:placeholder-shown) + .auth-label {
+      top: -6px;
+      left: 6px;
+      padding: 0 3px;
+    }
+  
+    .select-label {
+      top: -6px;
+      left: 6px;
+      padding: 0 3px;
+    }
+  
+    .auth-button {
+      padding: 6px;
+    }
+  }
+  
+  @media (max-width: 360px) { /* Extra-small mobile (e.g., iPhone 5/SE) */
+    .auth-card {
+      padding: 0.5rem;
+      max-width: 260px;
+    }
+  
+    .auth-input {
+      padding: 6px 8px;
+    }
+  
+    .auth-button {
+      padding: 5px;
+    }
+  
+    .auth-switch {
+      margin-top: 0.3rem;
+    }
+  }
+
+  .auto-main{
+    margin-right:11rem;
+  }

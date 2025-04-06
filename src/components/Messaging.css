@@ -1,0 +1,54 @@
+.messaging-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .messages {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .sent {
+    background-color: #d4edda;
+    text-align: right;
+  }
+  
+  .received {
+    background-color: #f8d7da;
+    text-align: left;
+  }
+  
+  .message-form {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .message-form textarea {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .message-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .message-form button:hover {
+    background-color: #0056b3;
+  }
